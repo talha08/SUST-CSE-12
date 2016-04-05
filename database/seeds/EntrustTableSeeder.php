@@ -15,8 +15,10 @@ class EntrustTableSeeder extends Seeder
     {
         $admin = Role::where('name',config('customConfig.roles.admin'))->first();
         $user = Role::where('name',config('customConfig.roles.user'))->first();
-        $adminUser = User::first();
-        $adminUser->attachRole($admin);
+        $adminUser1 = User::find(1);
+        $adminUser2 = User::find(2);
+        $adminUser1->attachRole($admin);
+        $adminUser2->attachRole($admin);
         $getAllusers = User::all();
         foreach ($getAllusers as $person) {
             $person->attachRole($user);

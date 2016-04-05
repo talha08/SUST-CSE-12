@@ -1,5 +1,5 @@
 <?php
-
+ // use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+
 	return Redirect::route('dashboard');
 });
 // Route::get('/',function(){
@@ -50,7 +51,9 @@ Route::group(array('middleware' => 'auth'), function()
 
 });
 
-
+Route::get('datatable',function(){
+	return View::make('template.datatable')->with('title','Data Table');
+});
 
 
 /*
