@@ -1,6 +1,7 @@
 <!-- Footer Start -->
 <footer class="footer">
-	Copyright &copy; 2016InfancyIT, Bangladesh. All rights reserved.
+	<center>Copyright &copy;2012 Batch. All rights reserved.</center>
+	<center>Dept. of Computer Science & Engineering, SUST, Sylhet</center>
 </footer>
 <!-- Footer Ends -->
 
