@@ -15,15 +15,15 @@ class CreateRoutineTable extends Migration
         Schema::create('routine', function (Blueprint $table) {
             $table->increments('id');
             $table->string('day');
-            $table->string('8_am');
-            $table->string('9_am');
-            $table->string('10_am');
-            $table->string('11_am');
-            $table->string('12_pm');
-            $table->string('1_pm');
-            $table->string('2_pm');
-            $table->string('3_pm');
-            $table->string('4_pm');
+            $table->string('am_8');
+            $table->string('am_9');
+            $table->string('am_10');
+            $table->string('am_11');
+            $table->string('pm_12');
+            $table->string('pm_1');
+            $table->string('pm_2');
+            $table->string('pm_3');
+            $table->string('pm_4');
             $table->timestamps();
         });
     }

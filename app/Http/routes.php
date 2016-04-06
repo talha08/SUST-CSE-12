@@ -13,10 +13,11 @@
 
 Route::get('/', function () {
 
-	return View('routin', ['title' => 'Class Routine']);
+	// return View('routin', ['title' => 'Class Routine']);
 	// return view('greetings', ['name' => 'Victoria']);
-	// return Redirect::route('dashboard');
+	return Redirect::route('dashboard');
 });
+// Route::get('routine', ['as' => 'routine.index', 'uses' => 'RoutineController@index']);
 // Route::get('/',function(){
 // 	// return \App\User::first();
 // 	//return array_keys(config('customConfig.roles'));
@@ -68,6 +69,15 @@ Route::get('datatable',function(){
 	return View::make('template.datatable')->with('title','Data Table');
 });
 
+// routine 
+
+	Route::get('routine',['as' => 'routine.index', 'uses' => 'RoutineController@index']);
+	// Route::get('routine/create',['as' => 'routine.create', 'uses' => 'RoutineController@create']);
+	Route::post('routine',['as' => 'routine.store', 'uses' => 'RoutineController@store']);
+	Route::get('routine/{id}/edit',['as' => 'routine.edit', 'uses' => 'RoutineController@edit']);
+	// Route::get('routine/{id}/show',['as' => 'routine.show', 'uses' => 'RoutineController@show']);
+	Route::put('routine/{id}',['as' => 'routine.update', 'uses' => 'RoutineController@update']);
+	// Route::delete('routine/{id}',['as' => 'routine.delete', 'uses' => 'RoutineController@destroy']);
 
 /*
 Route::get('profile1',function(){

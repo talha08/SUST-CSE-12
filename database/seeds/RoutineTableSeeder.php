@@ -10,75 +10,82 @@ class RoutineTableSeeder extends Seeder
     public function run()
     {
         // TestDummy::times(20)->create('App\Post');
-        Routine::create(
+
+        Routine::insert([
         	[
         		'day' => 'SUN',
-        		'8_am' => 'CA HAC/329',
-        		'9_am' => 'SE AAM/329',
-        		'10_am' => 'Graphics Lab MJI/304',
-        		'11_am' => 'Graphics Lab MJI/304',
-        		'12_pm' => 'Graphics Lab MJI/304',
-        		'1_pm' => '',
-        		'2_pm' => 'DT MJI or SNM',
-        		'3_pm' => 'DT MJI or SNM',
-        		'4_pm' => '',
+        		'am_8' => 'CA HAC/329',
+        		'am_9' => 'SE AAM/329',
+        		'am_10' => 'Graphics Lab MJI/304',
+        		'am_11' => 'Graphics Lab MJI/304',
+        		'pm_12' => 'Graphics Lab MJI/304',
+        		'pm_1' => 'বিরতি',
+        		'pm_2' => 'DT MJI or SNM',
+        		'pm_3' => 'DT MJI or SNM',
+        		'pm_4' => '',
         		
         	],
         	// MON
         	[
         		'day' => 'MON',
-        		'8_am' => 'Graphics MJI/329',
-        		'9_am' => 'Graphics MJI/329',
-        		'10_am' => 'Technical Writing Lab AAm/303',
-        		'11_am' => 'Technical Writing Lab AAm/303',
-        		'12_pm' => 'Networking SNM/329',
-        		'1_pm' => '',
-        		'2_pm' => 'CA HAC/329',
-        		'3_pm' => 'DT MJI or SNM',
-        		'4_pm' => '',
-
+        		'am_8' => 'Graphics MJI/329',
+        		'am_9' => 'Graphics MJI/329',
+        		'am_10' => 'Technical Writing Lab AAm/303',
+        		'am_11' => 'Technical Writing Lab AAm/303',
+        		'pm_12' => 'Networking SNM/329',
+        		'pm_1' => 'বিরতি',
+        		'pm_2' => 'CA HAC/329',
+        		'pm_3' => 'DT MJI or SNM',
+        		'pm_4' => '',
+        		
         	],
+            //TUE
         	[
         		'day' => 'TUE',
-        		'8_am' => 'SE AAM/329',
-        		'9_am' => 'Technical Writing Lab AAm/303',
-        		'10_am' => 'Technical Writing Lab AAm/303',
-        		'11_am' => 'Networking SNM/329',
-        		'12_pm' => 'DT SNM',
-        		'1_pm' => '',
-        		'2_pm' => 'Project 300 MSI/MRA',
-        		'3_pm' => 'Project 300 MSI/MRA',
-        		'4_pm' => 'Project 300 MSI/MRA',
-
+        		'am_8' => 'SE AAM/329',
+        		'am_9' => 'Technical Writing Lab AAM/303',
+        		'am_10' => 'Technical Writing Lab AAM/303',
+        		'am_11' => 'Networking SNM/329',
+        		'pm_12' => 'DT SNM',
+        		'pm_1' => 'বিরতি',
+        		'pm_2' => 'Project 300 MSI/MRA',
+        		'pm_3' => 'Project 300 MSI/MRA',
+        		'pm_4' => 'Project 300 MSI/MRA',
+        		
         	],
+            // WED
         	[
         		'day' => 'WED',
-        		'8_am' => 'Graphics MJI/329',
-        		'9_am' => 'Networking Lab SNM/304',
-        		'10_am' => 'Networking Lab SNM/304',
-        		'11_am' => 'Networking Lab SNM/304',
-        		'12_pm' => '',
-        		'1_pm' => '',
-        		'2_pm' => 'SE AAM/329',
-        		'3_pm' => 'Networking SNM/329',
-        		'4_pm' => '',
-
+        		'am_8' => 'Graphics MJI/329',
+        		'am_9' => 'Networking Lab SNM/304',
+        		'am_10' => 'Networking Lab SNM/304',
+        		'am_11' => 'Networking Lab SNM/304',
+        		'pm_12' => '',
+        		'pm_1' => 'বিরতি',
+        		'pm_2' => 'SE AAM/329',
+        		'pm_3' => 'Networking SNM/329',
+        		'pm_4' => '',
+        		
         	],
+            // THU
         	[
         		'day' => 'THU',
-        		'8_am' => 'CA HAC/329',
-        		'9_am' => 'DT HAC',
-        		'10_am' => 'SE LAB/303',
-        		'11_am' => 'SE LAB/303',
-        		'12_pm' => 'SE LAB/303',
-        		'1_pm' => '',
-        		'2_pm' => '',
-        		'3_pm' => '',
-        		'4_pm' => '',
+        		'am_8' => 'CA HAC/329',
+        		'am_9' => 'DT HAC',
+        		'am_10' => 'SE LAB/303',
+        		'am_11' => 'SE LAB/303',
+        		'pm_12' => 'SE LAB/303',
+        		'pm_1' => 'বিরতি',
+        		'pm_2' => '',
+        		'pm_3' => '',
+        		'pm_4' => '',
 
         	]
         	// Dhruba Chakraborty --> dhrubamuk@gmail.com
-        	);
+        	]);
+		// foreach($users as $user){
+		//     User::create($user);
+		// }
         
     }
 }
