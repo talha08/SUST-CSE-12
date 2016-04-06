@@ -30,15 +30,22 @@
                     </li>
 
 
-
-
-                    <li class="has-submenu"><a href="#"><i class="ion-compose"></i> <span class="nav-label">Forms</span></a>
+                    <!-- Skill -->
+                    <li class="{!! Menu::areActiveRoutes(['skill.index', 'skill.create']) !!}"><a href="#"><i class="ion-compose"></i> <span class="nav-label">Skill</span></a>
                         <ul class="list-unstyled">
-                            <li><a href="#">General Elements</a></li>
-                            <li><a href="#">Form Validation</a></li>
 
+                            <li class="{!! Menu::isActiveRoute('skill.index') !!}">
+                                <a href="{!!  URL::route( 'skill.index') !!}">Skill List</a>
+                            </li>
+
+                            <li class="{!! Menu::isActiveRoute('skill.create') !!}">
+                                <a href="{!!  URL::route( 'skill.create') !!}">Add new skill</a>
+                            </li>
                         </ul>
                     </li>
+
+
+
 
 
                     <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Data Tables</span></a>

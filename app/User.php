@@ -40,4 +40,13 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+
+
+    //for Skill Model(One to Many)
+    public function skills(){
+        $this->belongsTo('Skill','user_id','id');
+    }
+
 }
