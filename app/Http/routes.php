@@ -13,7 +13,9 @@
 
 Route::get('/', function () {
 
-	return Redirect::route('dashboard');
+	return View('routin', ['title' => 'Class Routine']);
+	// return view('greetings', ['name' => 'Victoria']);
+	// return Redirect::route('dashboard');
 });
 // Route::get('/',function(){
 // 	// return \App\User::first();
