@@ -9,18 +9,18 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
-
-
                         <div class="panel-heading">
-
-                            <h3 class="panel-title">{!!$title!!}</h3>
-
-                                        <span class="pull-right">
-                                               <a href="{!! route('skill.create')!!}"><button class="btn btn-success">Add New Skill</button></a>
-                                        </span>
-                        </div><br>
-
-
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>{{ $title }}</h4>
+                                </div>
+                                <div class="col-md-6">                            
+                                     <a class="pull-right" href="{!! route('skill.create')!!}"><button class="btn btn-success">Add New Skill</button></a>
+                                </div>
+                            </div>
+                        </div>
+                                
+                        
 
                         <div class="panel-body">
                             <div class="row">
@@ -29,7 +29,7 @@
                                     <table class="table table-striped table-bordered" id="datatable">
                                         <thead>
                                         <tr>
-                                            <th> Skill Name</th>
+                                            <th>Skill Name</th>
                                             <th>Experience</th>
                                             <th>Created at</th>
                                             <th>Edit</th>
