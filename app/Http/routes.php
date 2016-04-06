@@ -17,6 +17,7 @@ Route::get('/', function () {
 	// return view('greetings', ['name' => 'Victoria']);
 	// return Redirect::route('dashboard');
 });
+// Route::get('routine', ['as' => 'routine.index', 'uses' => 'RoutineController@index']);
 // Route::get('/',function(){
 // 	// return \App\User::first();
 // 	//return array_keys(config('customConfig.roles'));
@@ -57,6 +58,12 @@ Route::get('datatable',function(){
 	return View::make('template.datatable')->with('title','Data Table');
 });
 
+// routine 
+
+	Route::get('routine',['as' => 'routine.index', 'uses' => 'RoutineController@index']);
+	Route::post('routine',['as' => 'routine.store', 'uses' => 'RoutineController@store']);
+	Route::get('routine/{id}/edit',['as' => 'routine.edit', 'uses' => 'RoutineController@edit']);
+	Route::put('routine/{id}',['as' => 'routine.update', 'uses' => 'RoutineController@update']);
 
 /*
 Route::get('profile1',function(){
