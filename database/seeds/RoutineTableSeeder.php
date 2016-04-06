@@ -24,7 +24,7 @@ class RoutineTableSeeder extends Seeder
         		'4_pm' => '',
         		
         	],
-        	// MON 
+        	// MON
         	[
         		'day' => 'MON',
         		'8_am' => 'Graphics MJI/329',
@@ -36,7 +36,7 @@ class RoutineTableSeeder extends Seeder
         		'2_pm' => 'CA HAC/329',
         		'3_pm' => 'DT MJI or SNM',
         		'4_pm' => '',
-        		
+
         	],
         	[
         		'day' => 'TUE',
@@ -49,7 +49,7 @@ class RoutineTableSeeder extends Seeder
         		'2_pm' => 'Project 300 MSI/MRA',
         		'3_pm' => 'Project 300 MSI/MRA',
         		'4_pm' => 'Project 300 MSI/MRA',
-        		
+
         	],
         	[
         		'day' => 'WED',
@@ -62,7 +62,7 @@ class RoutineTableSeeder extends Seeder
         		'2_pm' => 'SE AAM/329',
         		'3_pm' => 'Networking SNM/329',
         		'4_pm' => '',
-        		
+
         	],
         	[
         		'day' => 'THU',
@@ -75,7 +75,7 @@ class RoutineTableSeeder extends Seeder
         		'2_pm' => '',
         		'3_pm' => '',
         		'4_pm' => '',
-        		
+
         	]
         	// Dhruba Chakraborty --> dhrubamuk@gmail.com
         	);

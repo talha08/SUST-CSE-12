@@ -65,13 +65,14 @@ class SocialController extends Controller
             if (empty($profile)) {
 
                 $user = new User;
-                $user->name = $result['name'];
+                $user->username = $result['last_name'];
                 $user->email = $result['email'];
                 $user->password = Hash::make($result['id']);
+                $user->fb_id = $result['id'];
                 $user->save();
 
             }
-
+            $profile = User::where('email','=',$result['email'])->first();
             $user = $profile->id;
             \Auth::loginUsingId($user);
             Session::put('email', Auth::user()->email);
@@ -95,9 +96,9 @@ class SocialController extends Controller
 
 
 
+
+
     public function loginWithGoogle() {
-
-
         $code = Input::get( 'code' );
         $googleService = OAuth::consumer( 'Google' );
 
@@ -114,18 +115,18 @@ class SocialController extends Controller
             }
 
             $profile = User::where('email','=', $result['email'])->first();
-
-
             if (empty($profile)) {
 
                 $user = new User;
-                $user->name = $result['name'];
+                $user->fb_id = $result['id'];
+                $user->username = $result['family_name'];
                 $user->email = $result['email'];
                 $user->password = Hash::make($result['id']);
                 $user->save();
 
             }
 
+            $profile = User::where('email','=', $result['email'])->first();
              $user = $profile->id;
             \Auth::loginUsingId($user);
             Session::put('email', Auth::user()->email);
