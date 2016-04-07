@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Skill;
+use App\Model\Skill;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use View;

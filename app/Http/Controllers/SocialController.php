@@ -8,7 +8,7 @@ use OAuth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Redirect;
-use App\User;
+use App\Model\User;
 use Auth;
 use Session;
 
