@@ -9,27 +9,27 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
-
-
                         <div class="panel-heading">
-
-                            <h3 class="panel-title">{!!$title!!}</h3>
-
-                                        <span class="pull-right">
-                                               <a href="{!! route('skill.create')!!}"><button class="btn btn-success">Add New Skill</button></a>
-                                        </span>
-                        </div><br>
-
-
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>{{ $title }}</h4>
+                                </div>
+                                <div class="col-md-6">                            
+                                     <a class="pull-right" href="{!! route('skill.create')!!}"><button class="btn btn-success">Add New Skill</button></a>
+                                </div>
+                            </div>
+                        </div>
+                                
+                        
 
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-xs-12">
 
-                                    <table class="table table-striped table-bordered" id="datatable">
+                                    <table  id="dataTable" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
-                                            <th> Skill Name</th>
+                                            <th>Skill Name</th>
                                             <th>Experience</th>
                                             <th>Created at</th>
                                             <th>Edit</th>
@@ -87,6 +87,12 @@
 
 @stop
 
+@section('style')
+
+{!! Html::style('assets/datatables/jquery.dataTables.min.css') !!}
+
+@stop
+
 @section('script')
 
     {!! Html::script('assets/datatables/jquery.dataTables.min.js') !!}
@@ -95,18 +101,14 @@
 
 
 
-    //for Datatable
+    <!-- for Datatable -->
     <script type="text/javascript">
 
         $(document).ready(function() {
-            $('#datatable').dataTable();
-        });
-    </script>
-
-
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function() {
+            
             /* do not add datatable method/function here , its always loaded from footer -- masiur */
+            $('#dataTable').dataTable();
+
             $(document).on("click", ".deleteBtn", function() {
                 var deleteId = $(this).attr('deleteId');
                 var url = "<?php echo URL::route('skill.index'); ?>";
