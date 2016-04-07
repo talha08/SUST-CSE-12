@@ -17,7 +17,7 @@ class RoutineController extends Controller
     public function index()
     {
          $routine = Routine::all();
-        return View('index', ['title' => 'Class Routine', 'routines' => $routine]);
+        return View('routine.index', ['title' => 'Class Routine', 'routines' => $routine]);
     }
 
     /**
@@ -60,7 +60,9 @@ class RoutineController extends Controller
      */
     public function edit($id)
     {
-        //
+        $routine = Routine::findOrFail($id);
+
+        return View('routine.edit', compact('routine'))->with('title',"Edit Routine");
     }
 
     /**
@@ -72,7 +74,11 @@ class RoutineController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $routine =Routine::findOrFail($id);
+        $data = $request->all();
+        $routine->fill($data); // this method inserts all data 
+        return redirect()->route('routine.index')->with('success', 'Successfully Updated');
+        
     }
 
     /**

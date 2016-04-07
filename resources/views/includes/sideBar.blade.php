@@ -50,7 +50,9 @@
 
                     <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Data Tables</span></a>
                         <ul class="list-unstyled">
-                            <li><a href="#">Basic Tables</a></li>
+                            <li class="{!! Menu::isActiveRoute('routine.index') !!}">
+                                <a href="{!!  URL::route( 'routine.index') !!}">Routine</a>
+                            </li>
                             <li><a href="#">Data Table</a></li>
 
                         </ul>
