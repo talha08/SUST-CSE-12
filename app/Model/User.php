@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -49,4 +49,13 @@ class User extends Model implements AuthenticatableContract,
         $this->belongsTo('Skill','user_id','id');
     }
 
+    //for Project Model(One to Many)
+    public function project(){
+        $this->hasMany('Project','user_id','id');
+    }
+
+    //for AcademicStatus Model(One to One)
+    public function academicStatus(){
+        $this->hasOne('AcademicStatus','user_id','id');
+    }
 }

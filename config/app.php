@@ -147,7 +147,6 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Laravel\Cashier\CashierServiceProvider::class,
         Artdarek\OAuth\OAuthServiceProvider::class,
     ],
 
