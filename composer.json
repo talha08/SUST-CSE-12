@@ -9,7 +9,7 @@
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "5.1.*",
         "zizaco/entrust": "dev-laravel-5",
-        "laravel/cashier": "~5.0",
+        // "laravel/cashier": "~5.0",
         "ellipsesynergie/api-response": "^0.12.1",
         "oriceon/oauth-5-laravel": "dev-master"
     },
