@@ -16,7 +16,7 @@
             <nav class="navigation">
                 <ul class="list-unstyled">
 
-                     <li class="{!! Menu::areActiveURLs(['dashboard', 'change-password']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">UI Elements</span></a>
+                     <li class="{!! Menu::areActiveURLs(['dashboard', 'change-password']) !!}"><a href="#"><i class="ion-flask"></i> <span class="nav-label">Home</span></a>
                         <ul class="list-unstyled">
 
                             <li class="{!! Menu::isActiveURL('dashboard') !!}">
@@ -78,7 +78,7 @@
                     </li>
 
 
-                    <li class="has-submenu"><a href="#"><i class="ion-location"></i> <span class="nav-label">Maps</span></a>
+                    <li class="has-submenu"><a href="#"><i class="ion-location"></i> <span class="nav-label">Projects</span></a>
                         <ul class="list-unstyled">
                             <li><a href="gmap.html"> Google Map</a></li>
                             <li><a href="vector-map.html"> Vector Map</a></li>
