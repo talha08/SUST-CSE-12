@@ -77,3 +77,14 @@ Route::get('datatable',function(){
 	Route::put('routine/{id}',['as' => 'routine.update', 'uses' => 'RoutineController@update']);
 	Route::delete('routine/{id}',['as' => 'routine.delete', 'uses' => 'RoutineController@destroy']);
 
+	// projects
+
+	Route::get('project',['as' => 'project.index', 'uses' => 'ProjectController@index']);
+	Route::get('project/create',['as' => 'project.create', 'uses' => 'ProjectController@create']);
+	Route::post('project',['as' => 'project.store', 'uses' => 'ProjectController@store']);
+	Route::get('project/{id}/edit',['as' => 'project.edit', 'uses' => 'ProjectController@edit']);
+	Route::get('project/{id}/show',['as' => 'project.show', 'uses' => 'ProjectController@show']);
+	Route::put('project/{id}',['as' => 'project.update', 'uses' => 'ProjectController@update']);
+	Route::delete('project/{id}',['as' => 'project.delete', 'uses' => 'ProjectController@destroy']);
+
+
