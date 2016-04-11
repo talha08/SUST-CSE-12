@@ -87,4 +87,12 @@ Route::get('datatable',function(){
 	Route::put('project/{id}',['as' => 'project.update', 'uses' => 'ProjectController@update']);
 	Route::delete('project/{id}',['as' => 'project.delete', 'uses' => 'ProjectController@destroy']);
 
+	// dialogue
 
+	Route::get('dialog',['as' => 'dialog.index', 'uses' => 'DialogController@index']);
+	Route::get('dialog/create',['as' => 'dialog.create', 'uses' => 'DialogController@create']);
+	Route::post('dialog',['as' => 'dialog.store', 'uses' => 'DialogController@store']);
+	Route::get('dialog/{id}/edit',['as' => 'dialog.edit', 'uses' => 'DialogController@edit']);
+	Route::get('dialog/{id}/show',['as' => 'dialog.show', 'uses' => 'DialogController@show']);
+	Route::put('dialog/{id}',['as' => 'dialog.update', 'uses' => 'DialogController@update']);
+	Route::delete('dialog/{id}',['as' => 'dialog.delete', 'uses' => 'DialogController@destroy']);
