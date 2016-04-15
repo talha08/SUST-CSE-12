@@ -12,9 +12,20 @@
 <div class="wrapper-page animated fadeInDown">
     <div class="panel panel-color panel-primary">
         <div class="panel-heading">
-            <h3 class="text-center m-t-10"> Sign In to <strong>Laravel 5.1</strong> </h3>
+            <h3 class="text-center m-t-10"><strong>SUST CSE 2012</strong> </h3>
         </div>
-        <br>
+        <center>
+        
+
+        <div class="login-social-link">
+        <br><p>It's highly recommended to sign in via Facebook</p>
+            <a href="{{ route('login/fb') }}" class="btn btn-info"><i class="fa fa-facebook"></i> Facebook</a>
+       <!-- <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>Twitter</a> -->
+            <!-- <a href="{{ route('login/gp') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a> -->
+        </div>
+       </center>
+
+        <br><p>or you can sign in via username & password</p>
              @include('includes.alert')
 
             {!! Form::open(array('route' => 'login', 'method' => 'post', 'class' => 'form-horizontal m-t-40')) !!}
@@ -63,25 +74,16 @@
 
 
 
-        <center>
-        <p>or you can sign in via social network</p>
-
-        <div class="login-social-link">
-            <a href="{{ route('login/fb') }}" class="btn btn-primary"><i class="fa fa-facebook"></i> Facebook</a>
-       <!-- <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i>Twitter</a> -->
-            <a href="{{ route('login/gp') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>
-        </div>
-       </center>
+        
 
 
-
-        <div class="registration">
+        <!-- <div class="registration">
             <br>
             Don't have an account yet?
             <a class="" href="{{ route('user.create') }}">
                 Create an account
             </a>
-        </div>
+        </div> -->
 
 
         {!! Form::close() !!}

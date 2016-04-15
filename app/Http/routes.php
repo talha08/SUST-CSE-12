@@ -50,7 +50,8 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
 
-//skill resource
+	//skill resource
+
 	Route::get('skill', ['as' => 'skill.index', 'uses' => 'SkillController@index']);
 	Route::get('skill/create', ['as' => 'skill.create', 'uses' => 'SkillController@create']);
 	Route::post('skill', ['as' => 'skill.store', 'uses' => 'SkillController@store']);
@@ -58,16 +59,7 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::put('skill/{id}/update', ['as' => 'skill.update', 'uses' => 'SkillController@update']);
 	Route::delete('skill/{id}', ['as' => 'skill.delete', 'uses' => 'SkillController@destroy']);
 
-
-
-
-});
-
-Route::get('datatable',function(){
-	return View::make('template.datatable')->with('title','Data Table');
-});
-
-// routine 
+	// routine 
 
 	Route::get('routine',['as' => 'routine.index', 'uses' => 'RoutineController@index']);
 	Route::get('routine/create',['as' => 'routine.create', 'uses' => 'RoutineController@create']);
@@ -116,3 +108,11 @@ Route::get('datatable',function(){
 	Route::get('file/{id}/show',['as' => 'file.show', 'uses' => 'FileController@show']);
 	Route::put('file/{id}',['as' => 'file.update', 'uses' => 'FileController@update']);
 	Route::delete('file/{id}',['as' => 'file.delete', 'uses' => 'FileController@destroy']);
+
+
+});
+
+Route::get('datatable',function(){
+	return View::make('template.datatable')->with('title','Data Table');
+});
+
