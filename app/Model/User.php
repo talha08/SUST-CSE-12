@@ -42,7 +42,10 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
 
-
+    //for profile Model(One to Many)
+    public function profile(){
+        $this->hasOne('Profile','user_id','id');
+    }
 
     //for Skill Model(One to Many)
     public function skills(){

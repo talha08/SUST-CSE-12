@@ -22,7 +22,7 @@ class CreateProfilesTables extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('dob');
-            $table->string('home_town');
+            $table->string('hometown');
             $table->string('interests');
             $table->string('img_url');
             $table->boolean('first_login')->default(false);

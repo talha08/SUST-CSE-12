@@ -53,29 +53,41 @@ class SocialController extends Controller
 
                 $token = $fb->requestAccessToken( $code );
 
-                $result = json_decode($fb->request( '/me?fields=id,name,first_name,last_name,email,picture,gender' ), true);
+                $result = json_decode($fb->request( '/me?fields=id,last_name,name,email,picture,gender,education,birthday,hometown' ), true);
 
             } catch (Exception $e) {
                 die("Too many requests, access denied by Facebook. Please wait a while.");
             }
 
 
-            $profile = User::where('email','=',$result['email'])->first();
+            //$user = User::where('email','=',$result['email'])->first();
+            $user = User::where('fb_id','=',$result['id'])->first(); // check if user already exist 
 
-            if (empty($profile)) {
+            if (empty($user)) {
 
                 $user = new User;
                 $user->username = $result['last_name'];
                 $user->email = $result['email'];
                 $user->password = Hash::make($result['id']);
                 $user->fb_id = $result['id'];
-                $user->save();
+                if($user->save()) {
+
+                    $profile = new Profile();
+                    $profile->name = $result['name'];
+                    $profile->gender = $result['gender'];
+                    $profile->dob = $result['birthday'];
+                    $profile->hometown= $result['hometown'];
+                    $profile->img_url = 'https://graph.facebook.com/'.$result['id'].'/picture?type=large';
+                    $profile = $user->profile()->save($profile); // inserting data into UserInfo  through userInfo method(one to one relation) with respect to foreign key on User model . this is getting $user id
+                    $user = $profile->user; 
+                }
 
             }
-            $profile = User::where('email','=',$result['email'])->first();
-            $user = $profile->id;
-            \Auth::loginUsingId($user);
+            //$profile = User::where('email','=',$result['email'])->first();
+            //$user = $profile->id;
+            \Auth::login($user);
             Session::put('email', Auth::user()->email);
+            Session::put('fb_id', Auth::user()->id);
 
             return Redirect::to('/')->with('message', 'Logged in with Facebook');
 
