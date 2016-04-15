@@ -39,6 +39,7 @@
                                                 <td>{!! $project->name !!}</td>
                                                 <td>{!! $project->url !!}</td>
                                                 <td>{!! $project->description !!}</td>
+                                                <td>{!! $project->user->username !!}</td>
                                                 <td><a class="btn btn-info btn-xs btn-archive Editbtn" href="{!!route('project.show',$project->id)!!}"  style="margin-right: 3px;">Show Details</a></td>
                                             </tr>
 
@@ -64,7 +65,7 @@
 
 {!! Html::style('assets/datatables/jquery.dataTables.min.css') !!}
 
-@stop
+@endsection
 
 @section('script')
 

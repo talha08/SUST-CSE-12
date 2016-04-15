@@ -10,6 +10,6 @@ class Skill extends Model
 
     //for User Model(One to Many)
     public function users(){
-        $this->belongsTo('User','user_id','id');
+        return $this->belongsTo('App\Model\User','user_id','id');
     }
 }

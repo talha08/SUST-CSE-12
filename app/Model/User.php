@@ -44,21 +44,21 @@ class User extends Model implements AuthenticatableContract,
 
     //for profile Model(One to Many)
     public function profile(){
-        $this->hasOne('Profile','user_id','id');
+        return $this->hasOne('App\Model\Profile','user_id','id');
     }
 
     //for Skill Model(One to Many)
     public function skills(){
-        $this->belongsTo('Skill','user_id','id');
+        return $this->hasMany('App\Model\Skill','user_id','id');
     }
 
     //for Project Model(One to Many)
     public function project(){
-        $this->hasMany('Project','user_id','id');
+        return $this->hasMany('App\Model\Project','user_id','id');
     }
 
     //for AcademicStatus Model(One to One)
     public function academicStatus(){
-        $this->hasOne('AcademicStatus','user_id','id');
+        return $this->hasOne('App\Model\AcademicStatus','user_id','id');
     }
 }

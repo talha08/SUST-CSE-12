@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Project;
+use App\Model;
 use App\Http\Requests;
+use App\Http\Requests\ProjectRequest;
 use View;
 use App\Http\Controllers\Controller;
 
@@ -30,7 +32,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return View::make('project.create')
+                ->with('title',"Add Your Project");
     }
 
     /**
@@ -39,9 +42,20 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
-        //
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'url' => 'url',
+        // ]);
+
+        $project = new Project();
+        $project->name = $request->name;
+        $project->url = $request->url;
+        $project->description = $request->description;
+        $project->user_id = \Auth::user()->id;
+        $project->save();
+        return redirect()->route('project.index')->with('success','Project Successfully Added');
     }
 
     /**
@@ -52,7 +66,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        return User::all();
     }
 
     /**
