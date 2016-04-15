@@ -23,9 +23,9 @@
                                 <a href="{!!  URL::to( 'dashboard') !!}">Dashboard</a>
                             </li>
 
-                            <li class="{!! Menu::isActiveURL('change-password') !!}">
+                            <!-- <li class="{!! Menu::isActiveURL('change-password') !!}">
                                 <a href="{!!  URL::to( 'change-password') !!}">Password Change</a>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
 
@@ -48,7 +48,7 @@
 
 
 
-                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Data Tables</span></a>
+                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Routine</span></a>
                         <ul class="list-unstyled">
                             <li class="{!! Menu::isActiveRoute('routine.index') !!}">
                                 <a href="{!!  URL::route( 'routine.index') !!}">Routine</a>
@@ -59,16 +59,55 @@
                     </li>
 
 
-                    <li class="has-submenu"><a href="#"><i class="ion-stats-bars"></i> <span class="nav-label">Charts</span><span class="badge bg-purple">1</span></a>
+                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Projects</span></a>
                         <ul class="list-unstyled">
-                            <li><a href="#">chart</a></li>
-                            <li><a href="#">Morris</a></li>
+                            <li class="{!! Menu::isActiveRoute('project.index') !!}">
+                                <a href="{!!  URL::route( 'project.index') !!}">Project List</a>
+                            </li>
+                            <li class="{!! Menu::isActiveRoute('project.create') !!}">
+                                <a href="{!!  URL::route( 'project.create') !!}">Add New Project</a>
+                            </li>
 
                         </ul>
                     </li>
 
+                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Notices</span></a>
+                        <ul class="list-unstyled">
+                            <li class="{!! Menu::isActiveRoute('notice.index') !!}">
+                                <a href="{!!  URL::route( 'notice.index') !!}">Previous Notices</a>
+                            </li>
+                            <li class="{!! Menu::isActiveRoute('notice.create') !!}">
+                                <a href="{!!  URL::route( 'notice.create') !!}">Add a Notice</a>
+                            </li>
 
-                    <li class="has-submenu"><a href="#"><i class="ion-email"></i> <span class="nav-label">Mail</span></a>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">FIles</span></a>
+                        <ul class="list-unstyled">
+                            <li class="{!! Menu::isActiveRoute('file.index') !!}">
+                                <a href="{!!  URL::route( 'file.index') !!}">All Files</a>
+                            </li>
+                            <li class="{!! Menu::isActiveRoute('file.create') !!}">
+                                <a href="{!!  URL::route( 'file.create') !!}">Upload File</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu"><a href="#"><i class="ion-grid"></i> <span class="nav-label">Dialogue</span></a>
+                        <ul class="list-unstyled">
+                            <li class="{!! Menu::isActiveRoute('dialog.index') !!}">
+                                <a href="{!!  URL::route( 'dialog.index') !!}">All Dialogues</a>
+                            </li>
+                            <li class="{!! Menu::isActiveRoute('dialog.create') !!}">
+                                <a href="{!!  URL::route( 'dialog.create') !!}">My Dialogue</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <!-- <li class="has-submenu"><a href="#"><i class="ion-email"></i> <span class="nav-label">Notices</span></a>
                         <ul class="list-unstyled">
                             <li><a href="#">Inbox</a></li>
                             <li><a href="#">Compose Mail</a></li>
@@ -83,7 +122,7 @@
                             <li><a href="gmap.html"> Google Map</a></li>
                             <li><a href="vector-map.html"> Vector Map</a></li>
                         </ul>
-                    </li>
+                    </li> -->
 
                 </ul>
             </nav>
