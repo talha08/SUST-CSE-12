@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProfilesTables extends Migration
+class CreateDialogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,20 +12,16 @@ class CreateProfilesTables extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('dialogs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('dialog');
+            $table->string('speaker');
             $table->integer('user_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users')
-                ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->string('name');
-            $table->string('gender');
-            $table->string('dob');
-            $table->string('hometown');
-            $table->string('interests');
-            $table->string('img_url');
-            $table->boolean('first_login')->default(false);
+                ->onUpdate('cascade'); // we are never going to use ondelete here
+            $table->integer('privacy');
+            $table->float('rating');
             $table->timestamps();
         });
     }
@@ -37,6 +33,6 @@ class CreateProfilesTables extends Migration
      */
     public function down()
     {
-        Schema::drop('profiles');
+        Schema::drop('dialogs');
     }
 }

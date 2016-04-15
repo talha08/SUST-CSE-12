@@ -96,3 +96,23 @@ Route::get('datatable',function(){
 	Route::get('dialog/{id}/show',['as' => 'dialog.show', 'uses' => 'DialogController@show']);
 	Route::put('dialog/{id}',['as' => 'dialog.update', 'uses' => 'DialogController@update']);
 	Route::delete('dialog/{id}',['as' => 'dialog.delete', 'uses' => 'DialogController@destroy']);
+
+	// dialogue
+
+	Route::get('notice',['as' => 'notice.index', 'uses' => 'NoticeController@index']);
+	Route::get('notice/create',['as' => 'notice.create', 'uses' => 'NoticeController@create']);
+	Route::post('notice',['as' => 'notice.store', 'uses' => 'NoticeController@store']);
+	Route::get('notice/{id}/edit',['as' => 'notice.edit', 'uses' => 'NoticeController@edit']);
+	Route::get('notice/{id}/show',['as' => 'notice.show', 'uses' => 'NoticeController@show']);
+	Route::put('notice/{id}',['as' => 'notice.update', 'uses' => 'NoticeController@update']);
+	Route::delete('notice/{id}',['as' => 'notice.delete', 'uses' => 'NoticeController@destroy']);
+
+	// dialogue
+
+	Route::get('file',['as' => 'file.index', 'uses' => 'FileController@index']);
+	Route::get('file/create',['as' => 'file.create', 'uses' => 'FileController@create']);
+	Route::post('file',['as' => 'file.store', 'uses' => 'FileController@store']);
+	Route::get('file/{id}/edit',['as' => 'file.edit', 'uses' => 'FileController@edit']);
+	Route::get('file/{id}/show',['as' => 'file.show', 'uses' => 'FileController@show']);
+	Route::put('file/{id}',['as' => 'file.update', 'uses' => 'FileController@update']);
+	Route::delete('file/{id}',['as' => 'file.delete', 'uses' => 'FileController@destroy']);

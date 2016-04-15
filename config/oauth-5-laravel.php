@@ -17,10 +17,11 @@ return [
 	 * Consumers
 	 */
 	'consumers' => [
-//using Steambd Pin
+
+			// using SUST CSE Batch 2012  facebook app 
 		'Facebook' => [
-			'client_id'     => '1066714296684623',
-			'client_secret' => '9ab6c74df65b6dabf3e5ebd334d04f06',
+			'client_id'     => '1587962404848426', 			
+			'client_secret' => 'a10a6b95067464e4e4cf262b54126955',
 			'scope'         => array('email'),
 		],
 
