@@ -1,5 +1,5 @@
 <?php
-use App\Routine;
+use App\Model\Routine;
 use Illuminate\Database\Seeder;
 
 // composer require laracasts/testdummy
@@ -30,8 +30,8 @@ class RoutineTableSeeder extends Seeder
         		'day' => 'MON',
         		'am_8' => 'Graphics MJI/329',
         		'am_9' => 'Graphics MJI/329',
-        		'am_10' => 'Technical Writing Lab AAm/303',
-        		'am_11' => 'Technical Writing Lab AAm/303',
+        		'am_10' => 'Technical Writing Lab AAM/303',
+        		'am_11' => 'Technical Writing Lab AAM/303',
         		'pm_12' => 'Networking SNM/329',
         		'pm_1' => 'বিরতি',
         		'pm_2' => 'CA HAC/329',

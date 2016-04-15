@@ -1,7 +1,7 @@
 <?php
 
-use App\Role;
-use App\User;
+use App\Model\Role;
+use App\Model\User;
 use Illuminate\Database\Seeder;
 
 class EntrustTableSeeder extends Seeder
