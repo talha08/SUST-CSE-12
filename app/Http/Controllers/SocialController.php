@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Redirect;
 use App\Model\User;
+use App\Model\Profile;
 use Auth;
 use Session;
 
