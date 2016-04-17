@@ -30,7 +30,8 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        //
+        return View::make('notice.create')
+                ->with('title',"Add Notice");
     }
 
     /**
