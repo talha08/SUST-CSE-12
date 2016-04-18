@@ -18,7 +18,7 @@ class NoticeController extends Controller
     public function index()
     {
         $notices = Notice::all();
-        return View::make('notice.index')
+        return View('notice.index')
                     ->with('title',"All Notices")
                     ->with('notices', $notices);
     }
