@@ -17,7 +17,7 @@
                                     <!-- <h4>{{ $title }}</h4> -->
                             </div>
                             <div class="col-md-6">                            
-                                <a class="pull-right" href="{!! route('notice.index')!!}"><button class="btn btn-success">notice List</button></a>
+                                <a class="pull-right" href="{!! route('notice.index')!!}"><button class="btn btn-success">All Notices So Far</button></a>
                             </div>
                          </div>
                     </div>
@@ -30,25 +30,26 @@
 
 
                                     <div class="form-group">
-                                        {!! Form::label('name', "Notice Head (required)", array('class' => 'control-label col-lg-2')) !!}
+                                        {!! Form::label('head', "Notice Heading *", array('class' => 'control-label col-lg-2')) !!}
                                         <div class="col-lg-10">
-                                            {!! Form::text('name', null, array('class' => 'form-control', 'placeholder' => 'Enter notice Name', 'required' => 'required', 'aria-required' =>'true')) !!}
+                                            {!! Form::text('head', null, array('class' => 'form-control', 'placeholder' => 'Enter Notice', 'required' => 'required', 'aria-required' =>'true')) !!}
                                         </div>
                                     </div>
        
 
                                     <div class="form-group">
-                                        {!! Form::label('description', "Notice Description", array('class' => 'control-label col-lg-2')) !!}
+                                        {!! Form::label('body', "Notice Description", array('class' => 'control-label col-lg-2')) !!}
                                         <div class="col-lg-10">
-                                            {!! Form::textarea('description',null,  array('class' => 'summernote form-control', 'placeholder' => 'Enter notice Name', 'required' => '', 'aria-required' =>false)) !!}
+                                            {!! Form::textarea('body',null,  array('class' => 'summernote form-control', 'placeholder' => 'Enter Notice Name', 'required' => '', 'aria-required' =>false)) !!}
                                         </div>
                                     </div>
 
-                                    <!-- this following field is intentionally left commented -->
-                                    <!-- <div class="form-group">
-                                        {!! Form::label('user_id', "P", array('class' => 'control-label')) !!}
-                                        {!! Form::text('user_id', null, array('class' => 'form-control', 'placeholder' => 'notice Developer')) !!}
-                                    </div> -->
+                                    <div class="form-group">
+                                        {!! Form::label('name', "Your Name *", array('class' => 'control-label col-lg-2')) !!}
+                                        <div class="col-lg-10">
+                                            {!! Form::text('name', null, array('class' => 'form-control', 'placeholder' => 'Who is saying?')) !!}
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
                                         <div class="col-lg-offset-2 col-lg-10">
