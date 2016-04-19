@@ -29,6 +29,7 @@
                                             <th>Notice No.</th>
                                             <th>Notice</th>
                                             <th>Details</th>
+                                            <th>Time</th>
                                             <th>#</th>
                                         </tr>
                                         </thead>
@@ -38,6 +39,7 @@
                                                 <td>{!! $notice->id !!}</td>
                                                 <td>{!! $notice->head !!}</td>
                                                 <td>{!! $notice->body !!}</td>
+                                                <td>{!! $notice->updated_at !!}</td>
                                                 <td><a class="btn btn-info btn-xs btn-archive Editbtn" href="{!!route('notice.edit',$notice->id)!!}"  style="margin-right: 3px;">Edit</a></td>
                                             </tr>
 

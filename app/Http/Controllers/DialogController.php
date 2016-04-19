@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Model\Dialog;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,10 @@ class DialogController extends Controller
      */
     public function index()
     {
-        //
+        $dialogs = Dialog::all();
+        return View('dialog.index')
+                    ->with('title',"All Dialogues")
+                    ->with('dialogs', $dialogs);
     }
 
     /**
@@ -26,7 +29,8 @@ class DialogController extends Controller
      */
     public function create()
     {
-        //
+        return View('dialog.create')
+                ->with('title',"Add Dialogue");
     }
 
     /**
@@ -37,7 +41,13 @@ class DialogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $dialog = new Dialog();
+        $dialog->dialog = $data['dialog'];
+        $dialog->speaker = $data['speaker'];
+        $dialog->user_id = \Auth::user()->id;
+        $dialog->save();
+        return redirect()->route('dialog.index')->with('success','Dialog Successfully Added');
     }
 
     /**

@@ -42,7 +42,13 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $notice = new Notice();
+        $notice->head= $data['head'];
+        $notice->body = $data['body'];
+        $notice->name = $data['name'];
+        $notice->save();
+        return redirect()->route('notice.index')->with('success','Notice Successfully Added');
     }
 
     /**
