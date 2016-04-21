@@ -26,7 +26,7 @@
                                     <table  id="dataTable" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
-                                            <th>Notice No.</th>
+                                            <th>No.</th>
                                             <th>Notice</th>
                                             <th>Details</th>
                                             <th>Time</th>

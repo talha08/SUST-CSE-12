@@ -35,7 +35,7 @@ class ProjectController extends Controller
         return View::make('project.create')
                 ->with('title',"Add Your Project");
     }
-
+    // Masiur Rahman Siddiki 
     /**
      * Store a newly created resource in storage.
      *
@@ -77,7 +77,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        return View::make('project.edit')
+                ->with('title',"Edit Your Project");
     }
 
     /**
@@ -89,7 +90,13 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Project::find($id);
+        $project->name = $request->name;
+        $project->url = $request->url;
+        $project->description = $request->description;
+        $project->user_id = \Auth::user()->id;
+        $project->save();
+        return redirect()->route('project.index')->with('success','Project Successfully Updated');
     }
 
     /**
