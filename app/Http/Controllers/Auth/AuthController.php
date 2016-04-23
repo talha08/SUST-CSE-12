@@ -96,7 +96,7 @@ class AuthController extends Controller
             $credentials = array
             (
                         'email'    => $allInput['email'],
-                        'password' => $allInput['password']
+                        'password' => $allInput['password'],
             );
 
             if (Auth::attempt($credentials))
