@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use Validator;
 use Auth;
 use Hash;
@@ -44,7 +45,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'username' => 'required|max:20|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -59,7 +60,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
@@ -100,6 +101,8 @@ class AuthController extends Controller
 
             if (Auth::attempt($credentials))
             {
+                return redirect()->intended('dashboard');
+            } else if(Auth::attempt([ 'username' => $allInput['email'], 'password' => $allInput['password'] ])) {
                 return redirect()->intended('dashboard');
             } else
             {
