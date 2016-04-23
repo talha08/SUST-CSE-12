@@ -69,7 +69,8 @@ class DialogController extends Controller
      */
     public function edit($id)
     {
-        //
+        return View('dialog.edit')
+                ->with('title',"Edit Dialogue");
     }
 
     /**
@@ -81,7 +82,13 @@ class DialogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $dialog = Dialog::find($id);
+        $dialog->dialog = $data['dialog'];
+        $dialog->speaker = $data['speaker'];
+        $dialog->user_id = \Auth::user()->id;
+        $dialog->save();
+        return redirect()->route('dialog.index')->with('success','Dialog Successfully Updated');
     }
 
     /**

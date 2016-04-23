@@ -70,7 +70,8 @@ class NoticeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return View::make('notice.edit')
+                ->with('title',"Edit Notice");
     }
 
     /**
@@ -82,7 +83,13 @@ class NoticeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $notice = Notice::find($id);
+        $notice->head= $data['head'];
+        $notice->body = $data['body'];
+        $notice->name = $data['name'];
+        $notice->save();
+        return redirect()->route('notice.index')->with('success','Notice Successfully Added');
     }
 
     /**
