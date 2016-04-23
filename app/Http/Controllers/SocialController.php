@@ -90,7 +90,7 @@ class SocialController extends Controller
             Session::put('email', Auth::user()->email);
             Session::put('fb_id', Auth::user()->id);
 
-            return Redirect::to('/')->with('message', 'Logged in with Facebook');
+            return redirect()->route('dashboard')->with('success', 'Logged in with Facebook');
 
         }
         // if not ask for permission first
