@@ -13,7 +13,7 @@
                 <div class="box-layout meta bottom">
 
                     <div class="col-sm-6 clearfix">
-                        <span class="img-wrapper pull-left m-r-15"><img src="img/avatar-2.jpg" alt="" style="width:64px" class="br-radius"></span>
+                        <span class="img-wrapper pull-left m-r-15"><img src="{{ URL::asset(Auth::user()->profile->img_url) }}" alt="" style="width:64px" class="br-radius"></span>
                         <div class="media-body">
                             <h3 class="text-white mb-2 m-t-10 ellipsis">{{$user->name}}</h3>
                             <h5 class="text-white"> Mycityname</h5>
