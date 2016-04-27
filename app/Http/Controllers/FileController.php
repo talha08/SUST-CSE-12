@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Model\File;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,10 @@ class FileController extends Controller
      */
     public function index()
     {
-        //
+        $files = File::all();
+        return View('file.index')
+                    ->with('title',"All files")
+                    ->with('files', $files);
     }
 
     /**
@@ -26,7 +29,8 @@ class FileController extends Controller
      */
     public function create()
     {
-        //
+        return view('file.create')
+                ->with('title',"Upload/Add File");
     }
 
     /**
