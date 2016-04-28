@@ -25,6 +25,7 @@ class CreateProfilesTables extends Migration
             $table->string('hometown');
             $table->string('interests');
             $table->string('img_url');
+            $table->string('aboutme');
             $table->boolean('first_login')->default(false);
             $table->timestamps();
         });
