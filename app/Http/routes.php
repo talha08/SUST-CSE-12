@@ -25,7 +25,6 @@ Route::get('/', function () {
 // });
 
 
-<for git push only >
 Route::group(['middleware' => 'guest'], function(){
 	Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
