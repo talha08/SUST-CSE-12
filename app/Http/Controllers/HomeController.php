@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Notice;
+
 use App\Http\Requests;
-use NoticeRequest;
-use View;
 use App\Http\Controllers\Controller;
 
-class NoticeController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +16,7 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $notices = Notice::all();
-        return View('notice.index')
-                    ->with('title',"All Notices")
-                    ->with('notices', $notices);
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -31,8 +26,7 @@ class NoticeController extends Controller
      */
     public function create()
     {
-        return View::make('notice.create')
-                ->with('title',"Add Notice");
+        //
     }
 
     /**
@@ -43,13 +37,7 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $notice = new Notice();
-        $notice->head= $data['head'];
-        $notice->body = $data['body'];
-        $notice->name = $data['name'];
-        $notice->save();
-        return redirect()->route('notice.index')->with('success','Notice Successfully Added');
+        //
     }
 
     /**
@@ -71,8 +59,7 @@ class NoticeController extends Controller
      */
     public function edit($id)
     {
-        return View::make('notice.edit')
-                ->with('title',"Edit Notice");
+        //
     }
 
     /**
@@ -84,13 +71,7 @@ class NoticeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $notice = Notice::find($id);
-        $notice->head= $data['head'];
-        $notice->body = $data['body'];
-        $notice->name = $data['name'];
-        $notice->save();
-        return redirect()->route('notice.index')->with('success','Notice Successfully Updated');
+        //
     }
 
     /**

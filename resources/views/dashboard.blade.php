@@ -1,8 +1,9 @@
 @extends('layouts.default')
-    @section('content')
-    
+    @section('content')  
         @include('includes.alert')
-        <h1>Welcome :)</h1>
-        @include('includes.alert')
+        <h1>Welcome :) to SUST CSE 2012 Batch Website
+        
+        </h1>
+
     
 @stop

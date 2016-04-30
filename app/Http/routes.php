@@ -11,19 +11,17 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 	// return View('routin', ['title' => 'Class Routine']);
 	// return view('greetings', ['name' => 'Victoria']);
-	return Redirect::route('dashboard');
-});
+
 // Route::get('routine', ['as' => 'routine.index', 'uses' => 'RoutineController@index']);
 // Route::get('/',function(){
 // 	// return \App\User::first();
 // 	//return array_keys(config('customConfig.roles'));
 // 	return redirect()->route('login');
 // });
-
 
 
 Route::group(['middleware' => 'guest'], function(){
