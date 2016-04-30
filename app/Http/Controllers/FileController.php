@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\File;
+use App\Model\FileLink;
 use App\Http\Requests;
+use App\Http\Requests\FileRequest;
 use App\Http\Controllers\Controller;
 
 class FileController extends Controller
@@ -16,7 +17,7 @@ class FileController extends Controller
      */
     public function index()
     {
-        $files = File::all();
+        $files = FileLink::all();
         return View('file.index')
                     ->with('title',"All files")
                     ->with('files', $files);
@@ -39,9 +40,23 @@ class FileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FileRequest $request)
     {
-        //
+        $data = $request->all();
+        $file_link = $request->input['file_link'];
+        if ($file_link == null ) {
+            $fileP = $request->file('thisfile');
+            $destination = public_path().'/uploads/files';
+            $filename = time().'_'.$data['file_name'].'.'.$fileP->getClientOriginalExtension();
+            $fileP->move($destination, $filename);
+            $file_link = '/uploads/files/'.$filename;
+        }
+        $file = new FileLink();
+        $file->file_type= $data['file_type'];
+        $file->file_name = $data['file_name'];
+        $file->file_link = $file_link;
+        $file->save();
+        return redirect()->route('file.index')->with('success','File Successfully Added');
     }
 
     /**
@@ -63,7 +78,10 @@ class FileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $file = FileLink::findOrFail($id);
+        return view('file.edit')
+                ->with('title',"Edit a File")
+                ->with('file', $file);
     }
 
     /**
@@ -75,7 +93,21 @@ class FileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $file_link = $request->input['file_link'];
+        if ($file_link == null ) {
+            $fileP = $request->file('thisfile');
+            $destination = public_path().'/uploads/files';
+            $filename = time().'_'.$data['file_name'].'.'.$fileP->getClientOriginalExtension();
+            $fileP->move($destination, $filename);
+            $file_link = '/uploads/files/'.$filename;
+        }
+        $file = FileLink::findOrFail($id);
+        $file->file_type= $data['file_type'];
+        $file->file_name = $data['file_name'];
+        $file->file_link = $file_link;
+        $file->save();
+        return redirect()->route('file.index')->with('success','File Successfully Updated');
     }
 
     /**
@@ -86,6 +118,11 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            FileLink::destroy($id);
+            return redirect()->route('file.index')->with('success','File Successfully Erased');
+        } catch(Exception $ex) {
+            return redirect()->route('file.index')->with('success','Something went wrong');
+        }
     }
 }

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class FileLink extends Model
 {
-    //
+    protected $table = 'files';
 }
