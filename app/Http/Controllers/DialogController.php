@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Dialog;
-use App\Http\Requests;
+use App\Http\Requests\DialogRequest;
 use App\Http\Controllers\Controller;
 
 class DialogController extends Controller
@@ -39,7 +39,7 @@ class DialogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DialogRequest $request)
     {
         $data = $request->all();
         $dialog = new Dialog();
@@ -69,8 +69,10 @@ class DialogController extends Controller
      */
     public function edit($id)
     {
+        $dialog = Dialogue::findOrFail($id);
         return View('dialog.edit')
-                ->with('title',"Edit Dialogue");
+                ->with('title',"Edit Dialogue")
+                ->with('dialog', $dialog);
     }
 
     /**
@@ -80,7 +82,7 @@ class DialogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DialogRequest $request, $id)
     {
         $data = $request->all();
         $dialog = Dialog::find($id);
@@ -99,6 +101,11 @@ class DialogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Dialog::destroy($id);
+            return redirect()->route('dialog.index')->with('success','Dialog Deleted Successfully');
+        } catch(Exception $ex) {
+            return redirect()->route('dialog.index')->with('error','Something went wrong.Please, try again');
+        }
     }
 }

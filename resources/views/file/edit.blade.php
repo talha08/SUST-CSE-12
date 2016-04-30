@@ -26,7 +26,7 @@
                             
                         <div class=" form"> 
 
-                                {!! Form::model($file, array('route' => ['file.store',$file->id], 'novalidate' => 'novalidate' , 'method' => 'post', 'class' => 'cmxform form-horizontal tasi-form','files' => true)) !!}
+                                {!! Form::model($file, array('route' => ['file.update',$file->id], 'novalidate' => 'novalidate' , 'method' => 'post', 'class' => 'cmxform form-horizontal tasi-form','files' => true)) !!}
 
 
                             <div class="form-group">
