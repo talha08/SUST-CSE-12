@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class FileRequest extends Request
+class DialogRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,8 @@ class FileRequest extends Request
     public function rules()
     {
         return [
-            'file_type' => 'required',
-            'file_name' => 'required',
-            'file_link' => 'required_if:thisfile,null|url',
-            'thisfile' => 'required_if:file_link,null'
+            'dialog' => 'required',
+            'speaker' => 'required'
         ];
     }
 }

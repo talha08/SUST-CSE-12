@@ -66,7 +66,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        return User::all();
+        // return User::all();
     }
 
     /**
@@ -77,8 +77,10 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
+        $project = Project::findOrFail($id);
         return View::make('project.edit')
-                ->with('title',"Edit Your Project");
+                ->with('title',"Edit Your Project")
+                ->with('project', $project);
     }
 
     /**
@@ -88,7 +90,7 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectRequest $request, $id)
     {
         $project = Project::find($id);
         $project->name = $request->name;
@@ -107,6 +109,11 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Project::destroy($id);
+            return redirect()->route('project.index')->with('success','Project Deleted Successfully');
+        } catch(Exception $ex) {
+            return redirect()->route('project.index')->with('error','Something went wrong');
+        }
     }
 }

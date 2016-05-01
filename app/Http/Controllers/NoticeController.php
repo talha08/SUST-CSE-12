@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Notice;
 use App\Http\Requests;
-use NoticeRequest;
 use View;
 use App\Http\Controllers\Controller;
 
@@ -71,8 +70,10 @@ class NoticeController extends Controller
      */
     public function edit($id)
     {
+        $notice = Notice::findOrFail($id);
         return View::make('notice.edit')
-                ->with('title',"Edit Notice");
+                ->with('title',"Edit Notice")
+                ->with('notice', $notice);
     }
 
     /**
@@ -101,6 +102,11 @@ class NoticeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Notice::destroy($id);
+            return redirect()->route('notice.index')->with('success','Notice Deleted Successfully');
+        } catch(Exception $ex) {
+            return redirect()->route('notice.index')->with('error','Something went wrong');
+        }
     }
 }
