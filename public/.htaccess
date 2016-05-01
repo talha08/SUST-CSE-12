@@ -8,6 +8,7 @@
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule (.*) http://sustcse12.xyz/$1 [R=301,L]
+    RedirectMatch 301 (.*) http://domain.com/$1
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
