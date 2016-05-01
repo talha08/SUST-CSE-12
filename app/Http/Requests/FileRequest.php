@@ -26,7 +26,7 @@ class FileRequest extends Request
         return [
             'file_type' => 'required',
             'file_name' => 'required',
-            'file_link' => 'url',
+            'file_link' => 'required_if:thisfile,null|url',
             'thisfile' => 'required_if:file_link,null'
         ];
     }
