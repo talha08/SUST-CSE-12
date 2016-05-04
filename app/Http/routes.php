@@ -37,7 +37,7 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
 
 });
-
+hhhhh
 Route::group(array('middleware' => 'auth'), function()
 {
 
