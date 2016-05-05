@@ -6,8 +6,8 @@
     RewriteEngine On
 
     # Redirect Trailing Slashes If Not A Folder...
-    RewriteCond %{HTTP_HOST} !^www\.sustcse12\.xyz [NC]
-    RewriteRule (.*) http://sustcse12.xyz/$1 [R=301,L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+
 
 
     # Handle Front Controller...

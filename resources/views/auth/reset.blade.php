@@ -8,7 +8,7 @@
     <meta name="keyword" content="">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>{{ $title or "Delivery" }} - {{ Config::get('customConfig.names.siteName')}}</title>
+    <title>{{ $title or "Delivery" }} || {{ Config::get('customConfig.names.siteName')}}</title>
 
     {!! Html::style('css/bootstrap.min.css') !!}
     {!! Html::style('css/bootstrap-reset.css') !!}
@@ -27,21 +27,24 @@
 
 <body class="login-body">
 <div class="container">
-    {!! Form::open(['class' => 'form-signin']) !!}
+    {!! Form::open(['route' =>'postReset', 'class' => 'form-signin']) !!}
 
     <input type='hidden' name='token' value="{!!$token!!}">
     <h2 class="form-signin-heading">Reset Password</h2>
     <div class="login-wrap">
         @include('includes.alert')
-
-        {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address/Phone', 'autofocus')) !!}
-        {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'New Password')) !!}
-        {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm New Password')) !!}
-
-        {!! Form::submit('Reset Password', array('class' => 'btn btn-lg btn-login btn-block')) !!}
-    </div>
-
-
+        <div>Email
+            {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
+        </div>
+        <div>
+            {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'New Password')) !!}
+        </div>
+        <div>
+            {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm New Password')) !!}
+        </div>
+        <div>
+            {!! Form::submit('Reset Password', array('class' => 'btn btn-lg btn-login btn-block')) !!}
+        </div>
 
 
     {!! Form::close() !!}
