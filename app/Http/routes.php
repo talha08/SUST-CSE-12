@@ -30,6 +30,9 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+	Route::post('reset', ['as' => 'reset-password', 'uses' => 'AuthController@resetRequest']);
+	Route::get('login/reset_password/users', ['as' => 'reset-page', 'uses' => 'AuthController@resetPage']);
+	Route::post('login/reset_password/users', ['as' => 'reset-process', 'uses' => 'AuthController@resetProcess']);
 
 
 	// social login route
@@ -37,7 +40,7 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
 
 });
-hhhhh
+
 Route::group(array('middleware' => 'auth'), function()
 {
 

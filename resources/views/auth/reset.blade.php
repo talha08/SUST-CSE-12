@@ -34,7 +34,7 @@
     <div class="login-wrap">
         @include('includes.alert')
 
-        {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) !!}
+        {!! Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address/Phone', 'autofocus')) !!}
         {!! Form::password('password', array('class' => 'form-control', 'placeholder' => 'New Password')) !!}
         {!! Form::password('password_confirmation', array('class' => 'form-control', 'placeholder' => 'Confirm New Password')) !!}
 

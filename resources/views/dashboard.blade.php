@@ -18,19 +18,19 @@
                                             <button class="btn btn-warning btn-sm m-t-40">Read more</button>
                                         </div><!-- /.item -->
 
-                                        <div class="item">
+                                        <!-- <div class="item">
                                             <h4><a href="#">Hey! Welcome to Velonic</a></h4>
                                             <p class="small">02 April, 2015</p>
                                             <p class="m-t-30"><em>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</em></p>
                                             <button class="btn btn-warning btn-sm m-t-40">Read more</button>
-                                        </div><!-- /.item -->
+                                        </div>
 
                                         <div class="item">
                                             <h4><a href="#">Hey! Welcome to Velonic</a></h4>
                                             <p class="small">02 April, 2015</p>
                                             <p class="m-t-30"><em>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</em></p>
                                             <button class="btn btn-warning btn-sm m-t-40">Read more</button>
-                                        </div><!-- /.item -->
+                                        </div> -->
 
                                     </div><!-- /#tiles-slide-1 -->
                                 </div><!-- /.panel-body -->
@@ -71,19 +71,23 @@
                     </div> <!-- col-->
 
                 </div>  <!-- End row -->
+            <div id="calendar"></div>
       
     
 @stop
 @section('style')
         <!-- Plugins css -->		
 		{!! Html::style('assets/owl-carousel/owl.carousel.css') !!}
+        {!! Html::style('calendar/css/calendar.css') !!}
 
 @endsection
 
 @section('script')
 
         <!-- owl-carousel --> 
-        {!! Html::script('assets/owl-carousel/owl.carousel.js') !!}
+    {!! Html::script('assets/owl-carousel/owl.carousel.js') !!}
+    {!! Html::script('calendar/js/vendor/underscore-min.js') !!}
+    {!! Html::script('calendar/js/calendar.js') !!}
         <script type="text/javascript">
             jQuery(document).ready(function($) {
         		//owl carousel
@@ -94,6 +98,11 @@
                     singleItem : true,
                     autoPlay:true
                 });
+                var calendar = $("#calendar").calendar(
+                {
+                    tmpl_path: "calendar/tmpls/",
+                    events_source: function () { return []; }
+                });
             });
-        </script>    
+        </script>   
 @endsection
