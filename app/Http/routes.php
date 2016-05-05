@@ -32,7 +32,7 @@ Route::group(['middleware' => 'guest'], function(){
 
 	// Password reset routes...
 	Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-	Route::post('password/reset', ['as' => 'postReset' , 'uses' => 'Auth\PasswordController@postReset');
+	Route::post('password/reset', ['as' => 'postReset' , 'uses' => 'Auth\PasswordController@postReset']);
 
 	// Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
