@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 @include('includes.header')
-
-
 
 <body>
 
@@ -68,30 +64,10 @@
                 </div>
         </div>
 
-
-
-
-
-
-
-        
-
-
-        <!-- <div class="registration">
-            <br>
-            Don't have an account yet?
-            <a class="" href="{{ route('user.create') }}">
-                Create an account
-            </a>
-        </div> -->
-
-
         {!! Form::close() !!}
 
     </div>
 </div>
-
-
 
 
 
@@ -108,7 +84,7 @@
                 <p>Enter your e-mail address below to reset your password.</p>
 
 
-                {!! Form::open(array('action' => 'RemindersController@postRemind', 'method' => 'post')) !!}
+                {!! Form::open(array('route' => 'getEmail', 'method' => 'POST')) !!}
 
                 {!! Form::email('email', '', array('class' => 'form-control placeholder-no-fix', 'placeholder' => 'Email Address', 'autocomplete'=>'off')) !!}
 

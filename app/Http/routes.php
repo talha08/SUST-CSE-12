@@ -12,6 +12,7 @@
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index']); // for post password reset redirection
 
 	// return View('routin', ['title' => 'Class Routine']);
 	// return view('greetings', ['name' => 'Victoria']);
@@ -25,12 +26,22 @@ Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 
 Route::group(['middleware' => 'guest'], function(){
-	Route::controller('password', 'RemindersController');
+	// Password reset link request routes...
+	Route::get('password/email', ['as' => 'getEmail', 'uses' => 'Auth\PasswordController@getEmail']);
+	Route::post('password/email', ['as' => 'postEmail', 'uses' => 'Auth\PasswordController@postEmail']);
+
+	// Password reset routes...
+	Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+	Route::post('password/reset', ['as' => 'postReset' , 'uses' => 'Auth\PasswordController@postReset');
+
+	// Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
 	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
-
+	Route::post('reset', ['as' => 'reset-password', 'uses' => 'AuthController@resetRequest']);
+	Route::get('login/reset_password/users', ['as' => 'reset-page', 'uses' => 'AuthController@resetPage']);
+	Route::post('login/reset_password/users', ['as' => 'reset-process', 'uses' => 'AuthController@resetProcess']);
 
 	// social login route
 	Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
@@ -120,3 +131,4 @@ Route::get('datatable',function(){
 	return View::make('template.datatable')->with('title','Data Table');
 });
 
+Route::get('file',['as' => 'file.index', 'uses' => 'FileController@index']);

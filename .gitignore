@@ -2,7 +2,7 @@
 vendor/
 .env.*.php
 .env.php
-
+public/.htaccess
 ### PhpStorm ###
 
 *.iml
@@ -22,3 +22,6 @@ composer.lock
 
 # Packages
 _ide_helper.php
+public/.htaccess
+*.htaccess
+.env
