@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Model\Notice;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -16,7 +17,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+        return $notices = Notice::all();
         return redirect()->route('dashboard');
+    }
+
+    public function dashboard(){
+        $notices = Notice::take(5)->get();
+        return view('dashboard')
+                    ->with('title','Dashboard')
+                    ->with('notices', $notices)
+                    ->with('user', Auth::user());
+        // return 'Dashboard';
     }
 
     /**

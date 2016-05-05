@@ -12,6 +12,7 @@
         "ellipsesynergie/api-response": "^0.12.1",
         "oriceon/oauth-5-laravel": "dev-master",
         "guzzlehttp/guzzle": "~5.3|~6.0",
+        "nesbot/carbon": "~1.18"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

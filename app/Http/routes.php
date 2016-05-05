@@ -27,12 +27,12 @@ Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index']); // for
 
 Route::group(['middleware' => 'guest'], function(){
 	// Password reset link request routes...
-	Route::get('password/email', ['as' => 'getEmail', 'uses' => 'Auth\PasswordController@getEmail']);
-	Route::post('password/email', ['as' => 'postEmail', 'uses' => 'Auth\PasswordController@postEmail']);
+	// Route::get('password/email', ['as' => 'getEmail', 'uses' => 'Auth\PasswordController@getEmail']);
+	// Route::post('password/email', ['as' => 'postEmail', 'uses' => 'Auth\PasswordController@postEmail']);
 
-	// Password reset routes...
-	Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-	Route::post('password/reset', ['as' => 'postReset' , 'uses' => 'Auth\PasswordController@postReset');
+	// // Password reset routes...
+	// Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+	// Route::post('password/reset', ['as' => 'postReset' , 'uses' => 'Auth\PasswordController@postReset']);
 
 	// Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'Auth\AuthController@login']);
@@ -54,7 +54,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
-	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
+	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'HomeController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
