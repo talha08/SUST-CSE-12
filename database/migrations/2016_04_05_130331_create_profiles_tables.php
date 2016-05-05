@@ -19,13 +19,13 @@ class CreateProfilesTables extends Migration
             $table->foreign('user_id')->references('id')->on('users')
                 ->onUpdate('cascade')->onDelete('cascade');
 
-            $table->string('name');
-            $table->string('gender');
-            $table->string('dob');
-            $table->string('hometown');
-            $table->string('interests');
-            $table->string('img_url');
-            $table->string('aboutme');
+            $table->string('name')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('hometown')->nullable();
+            $table->string('interests')->nullable();
+            $table->string('img_url')->default('upload/profile/default/avatar.jpg');
+            $table->string('aboutme')->nullable();
             $table->boolean('first_login')->default(false);
             $table->timestamps();
         });

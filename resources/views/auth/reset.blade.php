@@ -45,7 +45,6 @@
         <div>
             {!! Form::submit('Reset Password', array('class' => 'btn btn-lg btn-login btn-block')) !!}
         </div>
-    </div>
 
 
     {!! Form::close() !!}

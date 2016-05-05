@@ -39,17 +39,21 @@ Route::group(['middleware' => 'guest'], function(){
 	Route::get('user/create', ['as'=>'user.create','uses' => 'UsersController@create']);
 	Route::post('user/store', ['as'=>'user.store','uses' => 'UsersController@store']);
 	Route::post('login', array('uses' => 'Auth\AuthController@doLogin'));
+	Route::post('reset', ['as' => 'reset-password', 'uses' => 'AuthController@resetRequest']);
+	Route::get('login/reset_password/users', ['as' => 'reset-page', 'uses' => 'AuthController@resetPage']);
+	Route::post('login/reset_password/users', ['as' => 'reset-process', 'uses' => 'AuthController@resetProcess']);
 
 	// social login route
 	Route::get('login/fb', ['as'=>'login/fb','uses' => 'SocialController@loginWithFacebook']);
 	Route::get('login/gp', ['as'=>'login/gp','uses' => 'SocialController@loginWithGoogle']);
 
 });
+
 Route::group(array('middleware' => 'auth'), function()
 {
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
-	Route::get('profile', ['as' => 'profile', 'uses' => 'UsersController@profile']);
+	Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
 	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
@@ -115,7 +119,13 @@ Route::group(array('middleware' => 'auth'), function()
 	Route::delete('file/{id}',['as' => 'file.delete', 'uses' => 'FileController@destroy']);
 
 
+	Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
+	Route::put('profile/update', array('as' => 'profile.update', 'uses' => 'ProfileController@update'));
+	Route::put('photo', array('as' => 'photo.store', 'uses' => 'ProfileController@photoUpload'));
+
+
 });
+
 
 Route::get('datatable',function(){
 	return View::make('template.datatable')->with('title','Data Table');
