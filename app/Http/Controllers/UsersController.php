@@ -9,9 +9,11 @@ use Auth;
 use Hash;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Model\Profile;
 
 class UsersController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +23,7 @@ class UsersController extends Controller
     {
         //
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -32,6 +35,7 @@ class UsersController extends Controller
         return view('auth.register')
                     ->with('title', 'Register');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -60,9 +64,26 @@ class UsersController extends Controller
             $user->password = Hash::make($data['password']);
 
             if($user->save()){
-                Auth::logout();
-                return redirect()->route('login')
-                            ->with('success','Registered successfully. Sign In Now.');
+                //profile table update
+                $profile = new Profile();
+                $profile->user_id = $user->id;
+
+                if($profile->save()){
+                    //role assign
+                    $role = Role::find(2);
+                    $user->attachRole($role);
+
+                    //if save then logout the user and send him login view
+                    Auth::logout();
+                    return redirect()->route('login')
+                        ->with('success','Registered successfully. Sign In Now.');
+                }else{
+                    //if not save then  delete the user table data of this user
+                    User::destroy($user->id);
+                    return redirect()->back()
+                        ->with('error','Something went wrong.Please Try again.');
+                }
+
             }else{
                 return redirect()->route('dashboard')
                             ->with('error',"Something went wrong.Please Try again.");
@@ -70,59 +91,10 @@ class UsersController extends Controller
         }
     }
 
-    /**
-     * Display the profile Info.
-     *
-     * @param  none
-     * @return \Illuminate\Http\Response
-     */
-    public function profile()
-    {
-         return view('auth.profile')
-                    ->with('title', 'Profile')->with('user', Auth::user());
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
+
+
 }
