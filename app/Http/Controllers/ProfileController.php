@@ -48,15 +48,15 @@ class ProfileController extends Controller
     {
         try{
             Profile::where('id','=',Auth::user()->id)->update([
-                'name'=> $request->name,
+                'name'=>  $request->name,
                 'gender'=> $request->gender,
                 'dob'=> $request->dob,
-                'home_town'=> $request->home_town,
+                'hometown'=> $request->hometown,
                 'interests'=> $request->interests,
                 'aboutme'=> $request->aboutme,
             ]);
 
-            return Redirect::route('profile.index')->with('success','Profile updated Successfully');
+            return Redirect::route('profile')->with('success','Profile updated Successfully');
         }catch(Exception $e){
             return redirect()->back()->with('error','Something went wrong, Please try Again.');
         }
@@ -70,7 +70,7 @@ class ProfileController extends Controller
 
 
     /**
-     * Update photo.
+     * Update PROFILE photo.
      *
      * @param PhotoRequest  $request
      * @return \Illuminate\Http\Response
@@ -84,7 +84,7 @@ class ProfileController extends Controller
 
 
             //deleting previous file
-            $prev_avatar_url = Auth::user()->profiles->img_url;
+            $prev_avatar_url = Auth::user()->profile->img_url;
             if($prev_avatar_url != 'upload/profile/default/avatar.jpg'){
                 if (\File::exists($prev_avatar_url)) {
                     \File::delete($prev_avatar_url);
