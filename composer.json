@@ -11,14 +11,9 @@
         "zizaco/entrust": "dev-laravel-5",
         "ellipsesynergie/api-response": "^0.12.1",
         "oriceon/oauth-5-laravel": "dev-master",
-<<<<<<< HEAD
         "guzzlehttp/guzzle": "~5.3|~6.0",
-        "nesbot/carbon": "~1.18"
-=======
+        "nesbot/carbon": "~1.18",
         "intervention/image": "^2.3",
-        "guzzlehttp/guzzle": "~5.3|~6.0"
-
->>>>>>> refs/remotes/origin/master
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
