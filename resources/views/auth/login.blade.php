@@ -84,7 +84,7 @@
                 <p>Enter your e-mail address below to reset your password.</p>
 
 
-                {!! Form::open(array('route' => 'getEmail', 'method' => 'POST')) !!}
+                {!! Form::open(array( 'method' => 'POST')) !!}
 
                 {!! Form::email('email', '', array('class' => 'form-control placeholder-no-fix', 'placeholder' => 'Email Address', 'autocomplete'=>'off')) !!}
 
