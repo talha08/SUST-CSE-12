@@ -30,7 +30,8 @@
         "Collective\\Html\\HtmlServiceProvider",
         "Zizaco\\Entrust\\EntrustServiceProvider",
         "Barryvdh\\LaravelIdeHelper\\IdeHelperServiceProvider",
-        "Artdarek\\OAuth\\OAuthServiceProvider"
+        "Artdarek\\OAuth\\OAuthServiceProvider",
+        "Intervention\\Image\\ImageServiceProvider"
     ],
     "eager": [
         "Illuminate\\Auth\\AuthServiceProvider",
@@ -49,7 +50,8 @@
         "App\\Providers\\EventServiceProvider",
         "App\\Providers\\RouteServiceProvider",
         "Zizaco\\Entrust\\EntrustServiceProvider",
-        "Artdarek\\OAuth\\OAuthServiceProvider"
+        "Artdarek\\OAuth\\OAuthServiceProvider",
+        "Intervention\\Image\\ImageServiceProvider"
     ],
     "deferred": {
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

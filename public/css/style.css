@@ -2035,6 +2035,7 @@ aside.left-panel.collapsed span.nav-label {
   }
 }
 
+
 @media (max-width: 450px) {
 
   .username {
@@ -2044,3 +2045,4 @@ aside.left-panel.collapsed span.nav-label {
     display: none;
   }
 }
+
