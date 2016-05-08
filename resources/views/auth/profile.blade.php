@@ -48,7 +48,7 @@
 
                                 @include('includes.alert')
 
-                                <h3>About Me: </h3>
+                                {{--<h3>About Me: </h3>--}} <br/><br/><br/>
                                 <span class="designation">{!!$user->profile->aboutme!!} </span>
 
 
@@ -58,11 +58,18 @@
                                 <table class="table table-condensed">
                                     <thead>
                                     <tr>
-                                        <th colspan="3"><h3>Contact Information</h3></th>
+                                        <th colspan="3"><h3>Information</h3></th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
+
+
+
+                                    <tr>
+                                        <td><b>Complete Name:</b></td>
+                                        <td><a href="#" class="ng-binding">{!!$user->profile->name!!}</a></td>
+                                    </tr>
 
                                     <tr>
                                         <td><b>Email</b></td>
@@ -70,24 +77,34 @@
                                     </tr>
 
                                     <tr>
-                                        <td><b>Complete Name:</b></td>
-                                        <td><a href="#" class="ng-binding">{!!$user->name!!}</a></td>
+                                        <td><b>Gender</b></td><td class="ng-binding">{!!$user->profile->gender!!}</td>
                                     </tr>
 
                                     <tr>
-                                        <td><b>Phone</b></td><td class="ng-binding">{!!$user->profile->gender!!}</td>
+                                        <td><b>Hometown</b></td>
+                                        <td><a href="#" class="ng-binding">{!!$user->profile->hometown!!}</a></td>
                                     </tr>
 
                                     <tr>
-                                        <td><b>Facebook</b></td>
+                                        <td><b>Date of Birth</b></td>
                                         <td><a href="#" class="ng-binding">{!!$user->profile->dob!!}</a></td>
                                     </tr>
 
+                                    <tr>
+                                        <td><b>Hometown</b></td>
+                                        <td><a href="#" class="ng-binding">{!!$user->profile->dob!!}</a></td>
+                                    </tr>
 
+                                    {{--<tr>--}}
+                                        {{--<td><b>Interests</b></td>--}}
+                                        {{--<td><a href="#"  class="ng-binding">{!!$user->profile->interests!!}</a></td>--}}
+                                       {{----}}
+                                    {{--</tr>--}}
 
                                     </tbody>
                                 </table>
-
+                                  <h5>Interests:</h5>
+                                {!! Form::text('ghu', Auth::user()->profile->interests, array('class' => 'form-control','id'=>'tags', 'placeholder' => 'your interests...')) !!}
 
                             </div> <!-- end profile-desk -->
                         </div> <!-- about-me -->
@@ -100,31 +117,27 @@
 
                         <div id="photo-upload" class="tab-pane">
                             <div class="user-profile-content">
-                                {!! Form::open(array('route' => 'photo.store', 'method' => 'put', 'files' => true))  !!}
 
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 200px;">
-                                    {!! Html::image(Auth::user()->profile->img_url, 'alt', array()) !!}
+                                <div class="photo-upload">
+                                    {!! Form::open(array('route' => 'photo.store', 'method' => 'put', 'files' => true)) !!}
+                                    <fieldset>
+                                        <label>UPLOAD PICTURE:</label>
+                                        <br/>
+                                        <img class="preview" id="preview" alt=" " src="{!!asset(Auth::user()->profile->img_url)!!}">
+                                        <br/>
+                                        <br/>
+                                        <input type="file" name="image" id="imgInp" onchange="loadFile(event);">
+                                    </fieldset>
+
+                                    <fieldset>
+                                        {!! Form::submit('Update Avatar', array('class' => 'btn btn-primary')) !!}
+                                    </fieldset>
+
+                                    {!! Form::close() !!}
                                 </div>
 
-
-                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;"></div>
-                                <div>
-                                 <span class="btn btn-white btn-file" style="width: 300px; height: 50px;">
-                                        <span class="fileupload-new">
-                                             {!!  Form::file('image', array('class' => 'form-control')) !!}
-                                        </span>
-                                  </span>
-                                </div>
-
-                                <br><br>
-
-                                {!!  Form::submit('Update Avatar', array('class' => 'btn btn-primary')) !!}
-
-                                {!! Form::close() !!}
                             </div>
                         </div>
-
-
 
 
 
@@ -140,47 +153,39 @@
                                 {!! Form::model($profile, array('route' => 'profile.update', 'method' => 'put'))  !!}
 
                                 <div class="form-group ">
-                                    {!! Form::label('phone', 'Phone :', array('class' => 'col-md-4 control-label')) !!}<br/>
-                                    {!! Form::text('phone',null, array('class' => 'form-control', 'placeholder' => 'Your phone Number...')) !!}
+                                    {!! Form::label('name', 'Complete Name :', array('class' => 'col-md-4 control-label')) !!}<br/>
+                                    {!! Form::text('name',null, array('class' => 'form-control', 'placeholder' => 'your complete name...')) !!}
                                 </div><br>
 
 
                                 <div class="form-group">
-                                    {!! Form::label('platform', 'Working Platform * :', array('class' => 'col-md-4 control-label')) !!}<br>
-                                    {!!Form::select('platform', \App\Model\Profile::$genders, \Auth::user()->profile->gender ,array('class' => 'form-control'))!!}
+                                    {!! Form::label('gender', 'Gender  :', array('class' => 'col-md-4 control-label')) !!}<br>
+                                    {!!Form::select('gender', \App\Model\Profile::$genders, \Auth::user()->profile->gender ,array('class' => 'select2 '))!!}
                                 </div><br>
 
 
                                 <div class="form-group ">
-                                    {!! Form::label('position', 'Working Status * :', array('class' => 'col-md-4 control-label')) !!}<br/>
-                                    {!! Form::text('position',null, array('class' => 'form-control', 'placeholder' => 'Student/job...')) !!}
+                                    {!! Form::label('dob', 'Date Of Birth :', array('class' => 'col-md-4 control-label')) !!}<br/>
+                                    {!! Form::text('dob',null, array('class' => 'form-control','id'=>'datepicker', 'placeholder' => 'mm/dd/yyyy')) !!}
+
                                 </div><br>
 
 
                                 <div class="form-group ">
-                                    {!! Form::label('organization', 'Organization/Institute * :', array('class' => 'col-md-4 control-label')) !!}
-                                    {!! Form::text('organization', null, array('class' => 'form-control', 'placeholder' => 'Input organization/institute...')) !!}
+                                    {!! Form::label('hometown', 'Home Town :', array('class' => 'col-md-4 control-label')) !!}
+                                    {!! Form::text('hometown', null, array('class' => 'form-control', 'placeholder' => 'your hometown...')) !!}
                                 </div><br>
 
                                 <div class="form-group ">
-                                    {!! Form::label('fb_user', 'Facebook Account :', array('class' => 'col-md-4 control-label')) !!}
-                                    {!! Form::text('fb_user', null, array('class' => 'form-control', 'placeholder' => 'www.facebook.com/xyz...')) !!}
+                                    {!! Form::label('interests', 'Interests :', array('class' => 'col-md-4 control-label')) !!}
+                                    {!! Form::text('interests', null, array('class' => 'form-control','id'=>'tags', 'placeholder' => 'your interests...')) !!}
                                 </div><br>
 
                                 <div class="form-group ">
-                                    {!! Form::label('twitter_user', 'Twitter Account :', array('class' => 'col-md-4 control-label')) !!}
-                                    {!! Form::text('twitter_user', null, array('class' => 'form-control', 'placeholder' => 'www.twitter.com/xyz...')) !!}
+                                    {!! Form::label('aboutme', 'About me:', array('class' => 'col-md-4 control-label')) !!}
+                                    {!! Form::textarea('aboutme', null, array('class' => 'form-control', 'placeholder' => 'say about you....')) !!}
                                 </div><br>
 
-                                <div class="form-group ">
-                                    {!! Form::label('github_user', 'Github Account :', array('class' => 'col-md-4 control-label')) !!}
-                                    {!! Form::text('github_user', null, array('class' => 'form-control', 'placeholder' => 'www.github.com/xyz...')) !!}
-                                </div><br>
-
-                                <div class="form-group ">
-                                    {!! Form::label('about_me', 'About Yourself :', array('class' => 'col-md-4 control-label')) !!}
-                                    {!! Form::textarea('about_me', null, array('class' => 'form-control', 'placeholder' => 'Write About Yourself...')) !!}
-                                </div><br>
 
 
 
@@ -290,29 +295,48 @@
 
 @section('style')
 
-    {!! Html::style('css/chosen_dropdown/chosen.css') !!}
-    {!! Html::style('//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css') !!}
+    {{--male or female choose--}}
+    {!! Html::style('assets/select2/select2.css') !!}
+
+    {{--interests select--}}
+    {!! Html::style('assets/tagsinput/jquery.tagsinput.css') !!}
+
+    {{--photo upload custom--}}
+    {!! Html::style('css/photo_upload_custom.css') !!}
 
 @stop
 
 @section('script')
-    {!! Html::script('assets/datatables/jquery.dataTables.min.js') !!}
-    {!! Html::script('assets/datatables/dataTables.bootstrap.js') !!}
+    {{--date picker--}}
+    {!! Html::script('assets/timepicker/bootstrap-datepicker.js') !!}
+    {{--select or choser/ male|female--}}
+    {!! Html::script('assets/select2/select2.min.js') !!}
+    {{--interests input--}}
+    {!! Html::script('assets/tagsinput/jquery.tagsinput.min.js') !!}
 
-    {!! Html::script('js/chosen_dropdown/chosen.jquery.min.js') !!}
-    {!! Html::script('js/ckeditor/ckeditor.js') !!}
+    {{--custom photo upload--}}
+    {!! Html::script('js/photo_upload_custom.js') !!}
 
-    //for Datatable
+
+
     <script type="text/javascript">
 
-        $(document).ready(function() {
-            $('#datatable').dataTable();
+        jQuery(document).ready(function() {
 
+            // Tags Input
+            jQuery('#tags').tagsInput({
+                width:'100%'
+            });
+
+            // Date Picker
+            jQuery('#datepicker').datepicker();
+
+            // Select2
+            jQuery(".select2").select2({
+                width: '100%'
+            });
         });
-        $("#status").chosen();
+
     </script>
-
-
-
 
 @stop

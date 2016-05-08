@@ -25,7 +25,7 @@ class CreateProfilesTables extends Migration
             $table->string('hometown')->nullable();
             $table->string('interests')->nullable();
             $table->string('img_url')->default('upload/profile/default/avatar.jpg');
-            $table->string('aboutme')->nullable();
+            $table->text('aboutme')->nullable();
             $table->boolean('first_login')->default(false);
             $table->timestamps();
         });
