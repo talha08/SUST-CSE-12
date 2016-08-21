@@ -40,16 +40,15 @@
 									</tr>
 									</thead>
 									<tbody>
+									<?php $cnt = 1; ?>
 									@foreach ($webs as $web)
 										<tr>
-											<td>{!! $web->id !!}</td>
+											<td><?php echo $cnt; $cnt++;?></td>
 											<td>{!! $web->name1 !!}</td>
 											<td>{!! $web->reg1 !!}</td>
 											<td>{!! $web->name2 !!}</td>
 											<td>{!! $web->reg2 !!}</td>
-
 										</tr>
-
 									@endforeach
 									</tbody>
 								</table>

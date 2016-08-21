@@ -147,8 +147,10 @@ Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@dest
 
 
 
-Route::get('datatable',function(){
-	return View::make('template.datatable')->with('title','Data Table');
+Route::get('test',function(){
+	 $count = App\Model\WebEng::count();
+	for($i =1; $i<$count ; $i++)
+		echo $i;
 });
 
 Route::get('file',['as' => 'file.index', 'uses' => 'FileController@index']);

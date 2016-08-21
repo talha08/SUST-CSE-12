@@ -16,11 +16,14 @@
 								<h3 class="title">{!!$title!!}</h3>
 							</div>
 
-							{{--<div class="page-title">--}}
-								{{--<a class="pull-right" href="{!! route('web.index')!!}"><button class="btn btn-success">Team List</button></a>--}}
-							{{--</div>--}}
+							<center>
+								<a  href="{!! route('web.index')!!}"><button class="btn btn-success btn-sm ">View all Team</button></a>
+							</center>
 						</div>
 					</div>
+
+
+
 					<br>
 					@include('includes.alert')
 					<div class="panel-body ">
@@ -80,42 +83,5 @@
 		@include('web.footer')
 
 
-		@section('style')
-
-		{!! Html::style('assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css') !!}
-		{!! Html::style('assets/summernote/summernote.css') !!}
-		@stop
-
-		@section('script')
-
-		{!! Html::script('assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js') !!}
-		{!! Html::script('assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js') !!}
-		{!! Html::script('assets/summernote/summernote.min.js') !!}
 
 
-		{!! Html::script('assets/jquery.validate/jquery.validate.min.js') !!}
-		{!! Html::script('assets/jquery.validate/form-validation-init.js') !!}
-
-
-
-				<!-- for editor-->
-		<script type="text/javascript">
-
-			jQuery(document).ready(function(){
-
-				$('.wysihtml5').wysihtml5();
-
-				$('.summernote').summernote({
-					height: 200,                 // set editor height
-
-					minHeight: null,             // set minimum height of editor
-					maxHeight: null,             // set maximum height of editor
-
-					focus: true                 // set focus to editable area after initializing summernote
-				});
-
-			});
-		</script>
-
-
-@stop
