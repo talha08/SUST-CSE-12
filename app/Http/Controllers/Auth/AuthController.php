@@ -121,11 +121,11 @@ class AuthController extends Controller
         // return 'Logout Panel';
     }
 
-    // public function dashboard(){
-    //     return view('dashboard')
-    //                 ->with('title','Dashboard')->with('user', Auth::user());
-    //     // return 'Dashboard';
-    // }
+     public function dashboard(){
+         return view('dashboard')
+                     ->with('title','Dashboard')->with('user', Auth::user());
+         // return 'Dashboard';
+     }
 
     public function changePassword(){
         return view('auth.changePassword')

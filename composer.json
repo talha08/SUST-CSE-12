@@ -13,11 +13,8 @@
         "oriceon/oauth-5-laravel": "dev-master",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "nesbot/carbon": "~1.18",
-<<<<<<< HEAD
         "intervention/image": "^2.3"
-=======
-        "intervention/image": "^2.3",
->>>>>>> refs/remotes/origin/masiur
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

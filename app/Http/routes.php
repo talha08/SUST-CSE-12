@@ -54,7 +54,7 @@ Route::group(array('middleware' => 'auth'), function()
 
 	Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 	Route::get('profile', ['as' => 'profile', 'uses' => 'ProfileController@profile']);
-	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'Auth\AuthController@dashboard'));
+	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'HomeController@dashboard'));
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'Auth\AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'Auth\AuthController@doChangePassword'));
 
@@ -125,6 +125,32 @@ Route::group(array('middleware' => 'auth'), function()
 
 
 });
+
+
+
+
+
+
+//web engineering
+Route::get('web',['as' => 'web.index', 'uses' => 'WebengController@index']);
+Route::get('web/create',['as' => 'web.create', 'uses' => 'WebengController@create']);
+Route::post('web',['as' => 'web.store', 'uses' => 'WebengController@store']);
+Route::get('web/{id}/edit',['as' => 'web.edit', 'uses' => 'WebengController@edit']);
+Route::get('web/show',['as' => 'web.show', 'uses' => 'WebengController@show']);
+Route::put('web/{id}',['as' => 'web.update', 'uses' => 'WebengController@update']);
+Route::delete('web/{id}',['as' => 'web.delete', 'uses' => 'WebengController@destroy']);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Route::get('datatable',function(){
