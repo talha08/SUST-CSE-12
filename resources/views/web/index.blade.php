@@ -5,13 +5,15 @@
 
 			<!-- Abu talha -->
 	<div class="row">
-		<div class="col-sm-offset-3 col-md-6">
+		<div class="col-sm-offset-2 col-md-8">
 			<div class="panel panel-default">
 
 				<div class="panel-heading col-">
 					<div class="row">
 						<div class="page-title text-center">
+							<h2>Web Engineering (CSE-446)</h2>
 							<h3 class="title">{!!$title!!}</h3>
+							<h6>Session - 2012-13</h6>
 						</div>
 
 						{{--<div class="page-title">--}}
@@ -19,7 +21,7 @@
 						{{--</div>--}}
 					</div>
 				</div>
-				<br>
+				
 
 
 				<div class="panel-body ">
@@ -30,11 +32,11 @@
 								<table  id="dataTable" class="table table-striped table-bordered">
 									<thead>
 									<tr>
-										<th>Team No.</th>
-										<th>Member1</th>
-										<th>Reg1</th>
-										<th>Member2</th>
-										<th>Reg2</th>
+										<th class="col-md-1">Team No.</th>
+										<th>Member-1</th>
+										<th>Reg-1</th>
+										<th>Member-2</th>
+										<th>Reg-2</th>
 									</tr>
 									</thead>
 									<tbody>
@@ -52,7 +54,8 @@
 									</tbody>
 								</table>
 							@else
-								No Notice added yet. Be first to add a notice
+
+								<h3 class="text-center"> No Information added yet. Be first to add your Team Information</h3>
 							@endif
 						</div>
 					</div>
