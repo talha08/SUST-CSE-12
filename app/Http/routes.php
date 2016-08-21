@@ -11,18 +11,12 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/', function () {
+	return Redirect::route('dashboard');
+});
+
 Route::get('/home', ['as' => 'home2', 'uses' => 'HomeController@index']); // for post password reset redirection
 
-	// return View('routin', ['title' => 'Class Routine']);
-	// return view('greetings', ['name' => 'Victoria']);
-
-// Route::get('routine', ['as' => 'routine.index', 'uses' => 'RoutineController@index']);
-// Route::get('/',function(){
-// 	// return \App\User::first();
-// 	//return array_keys(config('customConfig.roles'));
-// 	return redirect()->route('login');
-// });
 
 
 Route::group(['middleware' => 'guest'], function(){

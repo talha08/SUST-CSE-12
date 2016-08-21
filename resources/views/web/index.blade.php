@@ -55,7 +55,7 @@
 								</table>
 							@else
 
-								<h3 class="text-center"> No Information added yet. Be first to add your Team Information</h3>
+								<h6 class="text-center"> No Information added yet. <br/> Be first to add your Team Information</h6>
 							@endif
 						</div>
 					</div>
