@@ -25,9 +25,9 @@ class WebEngRequest extends Request
     {
         return [
             'name1' => 'required',
-            'reg1' => 'required|min:10|max:10|numeric',
+            'reg1' => 'required|min:10|max:11|numeric',
             'name2' => 'required',
-            'reg2' => 'required|min:10|max:10|numeric',
+            'reg2' => 'required|min:10|max:11|numeric',
         ];
     }
 }
